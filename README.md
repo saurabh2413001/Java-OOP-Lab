@@ -18,7 +18,10 @@ Constructors
 Getter and Setter Methods
 Validation
 Exception Handling
+
+
 2. Employee Management System
+
 A payroll management system supporting multiple employee types:
 
 Full-Time Employees
@@ -35,18 +38,31 @@ Encapsulation
 Constructors
 Input Validation
 Repository Structure
+
 Java-OOP-Lab
+
 │
+
 ├── Bank Account Management System
+
 │   ├── BankAccount.java
+
 │   ├── BankAccountDemo.java
+
 │   └── README.md
+
 │
+
 ├── Employee Management System
+
 │   ├── Codechef.java
+
 │   └── README.md
+
 │
+
 └── README.md
+
 Topics Covered
 Object-Oriented Programming (OOP)
 Classes and Objects
