@@ -1,4 +1,5 @@
 Bank Account Management System
+
 A simple Java Object-Oriented Programming (OOP) project that demonstrates encapsulation, validation, and basic banking operations.
 
 Features
@@ -18,7 +19,12 @@ Input Validation
 Exception Handling
 Method Implementation
 Project Structure
-BankAccountManagementSystem/ ├── BankAccount.java └── BankAccountDemo.java
+
+BankAccountManagementSystem/
+
+├── BankAccount.java 
+
+└── BankAccountDemo.java
 
 Sample Output
 Account Number: ACC101 Account Holder: Aman Initial Balance: 5000.0
