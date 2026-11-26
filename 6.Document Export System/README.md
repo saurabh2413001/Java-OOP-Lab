@@ -1,15 +1,20 @@
 # 📄 Document Export System
 
-A Java application demonstrating the **Interface Segregation Principle (ISP)** and **Dependency Inversion Principle (DIP)** using a flexible document export system.
+A Java application that demonstrates the **Interface Segregation Principle (ISP)** and **Dependency Inversion Principle (DIP)** through a flexible document export architecture. The system supports multiple document formats while providing optional capabilities such as previewing and encryption.
+
+---
 
 ## 🚀 Features
 
-- Export documents as PDF, CSV, and JSON
-- Preview document content
-- Encrypt PDF documents
-- Input validation for documents and passwords
-- Dependency Injection using abstractions
-- Easily extensible architecture
+- ✅ Export documents as PDF, CSV, and JSON
+- ✅ Preview document content
+- ✅ Encrypt PDF documents
+- ✅ Input validation for documents and passwords
+- ✅ Constructor-based Dependency Injection
+- ✅ Extensible architecture for adding new exporters
+- ✅ Demonstrates key SOLID principles
+
+---
 
 ## 📂 Project Structure
 
@@ -19,11 +24,24 @@ A Java application demonstrating the **Interface Segregation Principle (ISP)** a
 └── README.md
 ```
 
-> All interfaces and classes are implemented in a single file (`Codechef.java`) for demonstration purposes.
+### Codechef.java Contains
+
+- `DocumentExporter`
+- `DocumentPreviewer`
+- `DocumentEncryptor`
+- `PdfExporter`
+- `CsvExporter`
+- `JsonExporter`
+- `ReportService`
+- `Codechef` (Main Class)
+
+> All interfaces and classes are implemented in a single file for simplicity and demonstration purposes.
+
+---
 
 ## 🏗️ Design Overview
 
-### Interfaces
+### Core Interfaces
 
 ```java
 DocumentExporter
@@ -31,19 +49,23 @@ DocumentPreviewer
 DocumentEncryptor
 ```
 
-### Implementations
+### Exporter Capabilities
 
-| Class | Export | Preview | Encrypt |
-|---------|---------|---------|---------|
+| Exporter | Export | Preview | Encrypt |
+|----------|---------|---------|----------|
 | PdfExporter | ✅ | ✅ | ✅ |
 | CsvExporter | ✅ | ✅ | ❌ |
 | JsonExporter | ✅ | ❌ | ❌ |
 
-## 📖 SOLID Principles
+---
+
+## 📖 SOLID Principles Demonstrated
 
 ### Interface Segregation Principle (ISP)
 
-Each class implements only the interfaces it needs.
+Instead of creating one large interface containing export, preview, and encryption operations, responsibilities are divided into smaller interfaces.
+
+This ensures that each exporter implements only the functionality it actually needs.
 
 ### Dependency Inversion Principle (DIP)
 
@@ -53,7 +75,41 @@ Each class implements only the interfaces it needs.
 DocumentExporter
 ```
 
-rather than concrete exporter implementations.
+rather than concrete implementations such as:
+
+```java
+PdfExporter
+CsvExporter
+JsonExporter
+```
+
+This makes the system flexible, maintainable, and easy to extend.
+
+---
+
+## 🔒 Validation Rules
+
+### Document Name Validation
+
+```java
+documentName == null || documentName.isBlank()
+```
+
+### Document Content Validation
+
+```java
+content == null || content.isBlank()
+```
+
+### Password Validation
+
+```java
+password == null || password.isBlank()
+```
+
+Invalid inputs result in an `IllegalArgumentException`.
+
+---
 
 ## 💡 Example Output
 
@@ -65,172 +121,124 @@ PDF Preview: Student: Alice, Score: 95
 PDF document encrypted successfully
 ```
 
-## ➕ Extending the System
+---
 
-Adding a new exporter only requires implementing:
+## ⚙️ Usage Example
+
+### Export a Report
 
 ```java
-DocumentExporter
+ReportService pdfService =
+    new ReportService(new PdfExporter());
+
+System.out.println(
+    pdfService.exportReport(
+        "StudentReport",
+        content
+    )
+);
 ```
+
+### Preview a Document
+
+```java
+DocumentPreviewer previewer =
+    new PdfExporter();
+
+System.out.println(
+    previewer.preview(content)
+);
+```
+
+### Encrypt a Document
+
+```java
+DocumentEncryptor encryptor =
+    new PdfExporter();
+
+System.out.println(
+    encryptor.encrypt(
+        content,
+        "secure123"
+    )
+);
+```
+
+---
+
+## ➕ Extending the System
+
+Adding a new exporter requires implementing the `DocumentExporter` interface.
 
 Example:
 
 ```java
-class XmlExporter implements DocumentExporter
+class XmlExporter implements DocumentExporter {
+
+    @Override
+    public String export(
+        String documentName,
+        String content
+    ) {
+        return "XML export completed: "
+                + documentName;
+    }
+}
 ```
 
-No changes are needed in `ReportService`.
+Usage:
 
-## 🛠️ Run
+```java
+ReportService xmlService =
+    new ReportService(
+        new XmlExporter()
+    );
+```
+
+No changes are required in `ReportService`.
+
+---
+
+## 🛠️ Compilation & Execution
+
+### Compile
 
 ```bash
 javac Codechef.java
+```
+
+### Run
+
+```bash
 java Codechef
 ```
 
+---
+
 ## 📚 Concepts Demonstrated
 
+- Object-Oriented Programming (OOP)
 - Java Interfaces
-- OOP
+- Runtime Polymorphism
+- Dependency Injection
+- Input Validation
+- Exception Handling
 - Interface Segregation Principle (ISP)
 - Dependency Inversion Principle (DIP)
-- Dependency Injection
-- Runtime Polymorphism
-- Exception Handling
-- Input Validation
+- SOLID Principles
+- Clean Code Practices
+
+---
 
 ## 👨‍💻 Author
 
 **Saurabh Kumar**
 
-GitHub: https://github.com/saurabh2413001# 📄 Document Export System
- 
-A Java application demonstrating the **Interface Segregation Principle (ISP)** and **Dependency Inversion Principle (DIP)** using a flexible document export system.
- 
-## 🚀 Features
- 
-- Export documents as PDF, CSV, and JSON
-- Preview document content
-- Encrypt PDF documents
-- Input validation for documents and passwords
-- Dependency Injection using abstractions
-- Easily extensible architecture
- 
-## 📂 Project Structure
- 
-```text
-.
-├── Codechef.java
-└── README.md
-```
- 
-> All interfaces and classes are implemented in a single file (`Codechef.java`) for demonstration purposes.
- 
-## 🏗️ Design Overview
- 
-### Interfaces
- 
-```java
-DocumentExporter
-DocumentPreviewer
-DocumentEncryptor
-```
- 
-### Implementations
- 
-| Class | Export | Preview | Encrypt |
-|---------|---------|---------|---------|
-| PdfExporter | ✅ | ✅ | ✅ |
-| CsvExporter | ✅ | ✅ | ❌ |
-| JsonExporter | ✅ | ❌ | ❌ |
- 
-## 📖 SOLID Principles
- 
-### Interface Segregation Principle (ISP)
- 
-Each class implements only the interfaces it needs.
- 
-### Dependency Inversion Principle (DIP)
- 
-`ReportService` depends on the abstraction:
- 
-```java
-DocumentExporter
-```
- 
-rather than concrete exporter implementations.
- 
-## 💡 Example Output
- 
-```text
-PDF export completed: StudentReport
-CSV export completed: StudentReport
-JSON export completed: StudentReport
-PDF Preview: Student: Alice, Score: 95
-PDF document encrypted successfully
-```
- 
-## ➕ Extending the System
- 
-Adding a new exporter only requires implementing:
- 
-```java
-DocumentExporter
-```
- 
-Example:
- 
-```java
-class XmlExporter implements DocumentExporter
-```
- 
-No changes are needed in `ReportService`.
- 
-## 🛠️ Run
- 
-```bash
-javac Codechef.java
-java Codechef
-```
- 
-## 📚 Concepts Demonstrated
- 
-- Java Interfaces
-- OOP
-- Interface Segregation Principle (ISP)
-- Dependency Inversion Principle (DIP)
-- Dependency Injection
-- Runtime Polymorphism
-- Exception Handling
-- Input Validation
- 
-## 👨‍💻 Author
- 
-**Saurabh Kumar**
- 
-GitHub: https://github.com/saurabh2413001
+- B.Tech Student
+- Competitive Programmer
+- Java & OOP Learner
 
-Ye GitHub projects ke liye ideal length hai. Na unnecessary long, na too short. Recruiters 30–40 sec me poora read kar sakte hain.
+**GitHub:**  
+🔗 https://github.com/saurabh2413001
 
-ye bahut consize ho gya
-
-Bilkul bhai. Mere hisab se medium-length README best rahegi. Na itni lambi ki recruiter skip kar de, na itni chhoti ki project trivial lage.
-
-Markdown
-# 📄 Document Export System
- 
-A Java application that demonstrates the **Interface Segregation Principle (ISP)** and **Dependency Inversion Principle (DIP)** using a flexible document export system. The application supports exporting documents in multiple formats while providing additional capabilities such as previewing and encryption where applicable.
- 
----
- 
-## 🚀 Features
- 
-- Export documents as PDF, CSV, and JSON
-- Preview document content
-- Encrypt PDF documents using a password
-- Input validation for document names, content, and passwords
-- Constructor-based Dependency Injection
-- Easily extensible design for adding new exporters
-- Demonstrates key SOLID principles
- 
----
+This project demonstrates how SOLID principles can be used to build a flexible, maintainable, and extensible document export system in Java.
