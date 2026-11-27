@@ -1,210 +1,300 @@
-# 🚚 Logistics Fleet Management System
+# ☕ Java OOP Lab
 
-A Java application that demonstrates the principles of **Abstraction**, **Runtime Polymorphism**, and **Interface-Based Design** through a logistics fleet management system. The application manages multiple delivery partners such as bikes, trucks, and drones while maintaining a flexible, scalable, and loosely coupled architecture.
+A collection of Java Object-Oriented Programming (OOP) projects developed to practice and demonstrate core software engineering, design patterns, and object-oriented design principles.
 
----
-
-## 🚀 Features
-
-- ✅ Interface-based fleet management
-- ✅ Support for multiple delivery vehicles
-- ✅ Runtime polymorphism
-- ✅ Centralized delivery coordination
-- ✅ Extensible architecture for new vehicle types
-- ✅ Loose coupling through abstraction
-- ✅ Demonstrates core OOP and SOLID concepts
+This repository contains hands-on implementations of real-world systems that strengthen concepts such as encapsulation, inheritance, abstraction, polymorphism, composition, validation, exception handling, SOLID principles, dependency injection, and business logic design.
 
 ---
 
-## 📂 Project Structure
+## 📚 Projects
 
-```text
-.
-├── Codechef.java
-└── README.md
-```
+### 1. Bank Account Management System
 
-### Codechef.java Contains
+A simple banking application that provides secure account management functionality.
 
-- `DeliveryPartner` (Interface)
-- `BikePartner`
-- `TruckPartner`
-- `DronePartner`
-- `DeliveryService`
-- `Codechef` (Main Class)
+**Features**
 
-> All interfaces and classes are implemented in a single file for simplicity and demonstration purposes.
+- Account Creation with Validation
+- Deposit and Withdrawal Operations
+- Balance Management
+- Account Holder Information Updates
+- Exception Handling for Invalid Operations
 
----
+**Concepts Covered**
 
-## 🏗️ System Architecture
-
-### Core Interface
-
-```java
-DeliveryPartner
-```
-
-The interface defines a common contract that every delivery vehicle must implement.
-
-### Fleet Components
-
-| Vehicle Type | Purpose |
-|-------------|----------|
-| BikePartner | Small package delivery |
-| TruckPartner | Heavy goods transportation |
-| DronePartner | Fast aerial delivery |
+- Classes and Objects
+- Encapsulation
+- Constructors
+- Getter and Setter Methods
+- Validation
+- Exception Handling
 
 ---
 
-## 📖 SOLID Principles Demonstrated
+### 2. Employee Salary Management System
 
-### Abstraction
+A payroll management application supporting multiple employee types and salary calculations.
 
-The system interacts with a common interface rather than concrete implementations.
+**Features**
 
-```java
-DeliveryPartner partner;
-```
+- Full-Time Employee Management
+- Sales Employee Management
+- Bonus Calculation
+- Commission Calculation
+- Salary Processing through Polymorphism
 
-This hides implementation details and exposes only the required behavior.
+**Concepts Covered**
 
-### Runtime Polymorphism
-
-Different fleet units implement the same delivery operation differently.
-
-```java
-partner.deliver(packageName);
-```
-
-The method executed depends on the actual object assigned at runtime.
-
-### Dependency Inversion Principle (DIP)
-
-`DeliveryService` depends on the abstraction:
-
-```java
-DeliveryPartner
-```
-
-instead of concrete implementations such as:
-
-```java
-BikePartner
-TruckPartner
-DronePartner
-```
-
-This improves maintainability and scalability.
+- Inheritance
+- Method Overriding
+- Polymorphism
+- Encapsulation
+- Constructors
+- Validation
+- Exception Handling
 
 ---
 
-## ⚙️ Delivery Workflow
+### 3. Payment Processing System
 
-### Step 1: Create a Fleet Unit
+A payment processing application that demonstrates abstraction and runtime polymorphism through multiple payment methods.
 
-```java
-DeliveryPartner bike =
-    new BikePartner();
-```
+**Features**
 
-### Step 2: Assign Delivery
+- Credit Card Payments
+- UPI Payments
+- Abstract Payment Interface
+- Runtime Polymorphism
+- Secure Validation Logic
+- Exception Handling
 
-```java
-service.processDelivery(
-    bike,
-    "Mobile Phone"
-);
-```
+**Concepts Covered**
 
-### Step 3: Execute Delivery
-
-```java
-partner.deliver(packageName);
-```
-
-The service delegates the task to the appropriate fleet unit.
-
----
-
-## 💡 Sample Output
-
-```text
-Bike Partner delivered package: Mobile Phone
-Truck Partner delivered package: Washing Machine
-Drone Partner delivered package: Medicine Box
-```
+- Abstraction
+- Abstract Classes
+- Abstract Methods
+- Inheritance
+- Method Overriding
+- Runtime Polymorphism
+- Encapsulation
+- Constructors
+- Validation
+- Exception Handling
 
 ---
 
-## 🔄 System Flow
+### 4. Food Delivery Order Processor
 
-```text
-Customer Request
-       │
-       ▼
- DeliveryService
-       │
-       ▼
- DeliveryPartner
-       │
- ┌─────┼─────────────┐
- ▼     ▼             ▼
-Bike  Truck       Drone
-```
+A complete food ordering and billing system that validates customer orders, calculates bills, applies discounts, manages delivery charges, and generates detailed receipts.
 
----
+**Features**
 
-## ➕ Extending the Fleet
+- Order Validation
+- Customer Information Validation
+- Item Validation
+- Discount Calculation
+- Delivery Fee Management
+- Receipt Generation
+- Bill Computation
+- Exception Handling
 
-Adding a new vehicle requires implementing the `DeliveryPartner` interface.
+**Business Rules**
 
-Example:
+- 10% Discount on Orders Above ₹1000
+- Free Delivery on Orders Above ₹500
+- Delivery Fee of ₹40 Otherwise
+- Automatic Bill Generation with Rounded Monetary Values
 
-```java
-class VanPartner implements DeliveryPartner {
+**Concepts Covered**
 
-    @Override
-    public void deliver(String packageName) {
-        System.out.println(
-            "Van Partner delivered package: "
-            + packageName
-        );
-    }
-}
-```
-
-No modifications are required in `DeliveryService`.
+- Classes and Objects
+- Encapsulation
+- Composition
+- Collections Framework (`List`)
+- Validation
+- Exception Handling
+- Business Logic Design
+- Immutable Data Structures
+- Separation of Concerns
+- StringBuilder
 
 ---
 
-## 🛠️ Compilation & Execution
+### 5. Discount Calculation System
 
-### Compile
+A pricing and discount management application that validates inputs, applies discount rules, and calculates final payable amounts.
 
-```bash
-javac Codechef.java
-```
+**Features**
 
-### Run
+- Discount Percentage Calculation
+- Input Validation
+- Price Computation
+- Business Rule Enforcement
+- Exception Handling
 
-```bash
-java Codechef
-```
+**Concepts Covered**
+
+- Classes and Objects
+- Encapsulation
+- Validation
+- Business Logic Design
+- Exception Handling
+- Clean Code Practices
 
 ---
 
-## 📚 Concepts Demonstrated
+### 6. Document Export System
 
-- Object-Oriented Programming (OOP)
+A flexible document export system demonstrating SOLID principles through multiple export formats and capabilities.
+
+**Features**
+
+- PDF Export
+- CSV Export
+- JSON Export
+- Document Preview
+- Document Encryption
+- Dependency Injection
+- Validation
+
+**Concepts Covered**
+
+- Interface Segregation Principle (ISP)
+- Dependency Inversion Principle (DIP)
+- Interfaces
+- Runtime Polymorphism
+- Dependency Injection
+- Clean Architecture
+- SOLID Principles
+
+---
+
+### 7. Design Logistics Fleet Management System
+
+A logistics management application that coordinates multiple delivery partners through a common interface-driven architecture.
+
+The system demonstrates how abstraction and runtime polymorphism can be used to manage different delivery modes such as bikes, trucks, and drones while keeping the service layer independent of implementation details.
+
+**Features**
+
+- Multiple Delivery Partner Support
+- Delivery Workflow Delegation
+- Interface-Based Architecture
+- Runtime Polymorphism
+- Extensible Fleet Design
+
+**Concepts Covered**
+
 - Interfaces
 - Abstraction
 - Runtime Polymorphism
 - Method Overriding
-- Dependency Inversion Principle (DIP)
 - Loose Coupling
+- Dependency Inversion Principle (DIP)
 - Interface-Based Design
 - SOLID Principles
+
+---
+
+## 📂 Repository Structure
+
+## 📂 Repository Structure
+
+```text
+Java-OOP-Lab
+│
+├── 1.Bank Account Management System
+│   ├── BankAccount.java
+│   ├── BankAccountDemo.java
+│   └── README.md
+│
+├── 2.Employee Salary Management System
+│   ├── Codechef.java
+│   └── README.md
+│
+├── 3.Payment Processing System
+│   ├── Payment.java
+│   ├── CreditCardPayment.java
+│   ├── UpiPayment.java
+│   ├── Main.java
+│   └── README.md
+│
+├── 4.Food Delivery Order Processor
+│   ├── Codechef.java
+│   └── README.md
+│
+├── 5.Discount Calculation System
+│   ├── Codechef.java
+│   └── README.md
+│
+├── 6.Document Export System
+│   ├── Codechef.java
+│   └── README.md
+│
+├── 7.Design Logistics Fleet Management System
+│   ├── Codechef.java
+│   └── README.md
+│
+└── README.md
+```
+---
+
+## 🎯 Topics Covered
+
+- Object-Oriented Programming (OOP)
+- Classes and Objects
+- Encapsulation
+- Inheritance
+- Abstraction
+- Interfaces
+- Abstract Classes
+- Abstract Methods
+- Polymorphism
+- Runtime Polymorphism
+- Method Overriding
+- Constructors
+- Composition
+- Collections Framework
+- Validation Techniques
+- Exception Handling
+- Business Logic Design
+- Dependency Injection
+- Interface-Based Design
+- Loose Coupling
+- SOLID Principles
+- Dependency Inversion Principle (DIP)
+- Interface Segregation Principle (ISP)
+- Clean Architecture
+- Clean Code Practices
+- Java Fundamentals
+
+---
+
+## 🛠️ Technologies Used
+
+- Java
+- Git
+- GitHub
+
+---
+
+## 🌱 Learning Goals
+
+This repository is maintained as part of my Java and Software Engineering learning journey.
+
+The primary objective is to gain hands-on experience with:
+
+- Object-Oriented Design
+- Real-World Business Logic
+- SOLID Principles
+- Design Patterns
+- Exception Handling
+- Input Validation
+- Dependency Injection
+- Clean and Maintainable Code
+- Scalable Software Architecture
+
+Each project focuses on a different aspect of software development while reinforcing fundamental Java concepts and software engineering principles.
 
 ---
 
@@ -214,11 +304,15 @@ java Codechef
 
 - B.Tech Information Technology Student
 - Competitive Programmer
-- Java & Backend Development Enthusiast
+- Java & OOP Learner
 
 **GitHub:**  
 🔗 https://github.com/saurabh2413001
 
 ---
 
-This project demonstrates how object-oriented design principles can be applied to build a flexible and scalable logistics fleet management system capable of supporting multiple delivery channels with minimal code changes.
+## ⭐ Purpose of This Repository
+
+This repository serves as a structured collection of Java projects designed to strengthen object-oriented programming fundamentals and software design skills.
+
+The goal is not only to learn Java syntax but also to apply industry-standard design principles such as SOLID, dependency injection, abstraction, polymorphism, and clean architecture while building practical, real-world systems.
